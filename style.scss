@@ -1,0 +1,78 @@
+$gradient-blue: #0909fa;
+$gradient-green: #d53f79;
+$mainFont: Avenir, sans-serif;
+$xxsWidth: 320px;
+$xsWidth: 375px;
+$tabletWidth: 768px;
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: $mainFont;
+  font-weight: bold;
+}
+
+body {
+  padding: 0;
+  margin: 0;background-image: linear-gradient(to right, $gradient-blue, $gradient-green);
+}
+
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+
+  @media (max-width: $xsWidth) {
+    transform: scale(0.9);
+  }
+
+  @media (max-width: $xxsWidth) {
+    transform: scale(0.75);
+    max-height: 100px;
+  }
+
+.output {
+  border-radius: 10px;
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  .previous-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+  }
+
+  .current-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 2.5rem;
+  }
+}
+ button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.75);
+    transition: .3s ease all;
+
+   &:hover {
+     background-color: rgba(255, 255, 255, 0.9);
+     transition: .3s ease all;
+   }
+  }
+
+  .span-two {
+    grid-column: span 2;
+  }
+
+}
